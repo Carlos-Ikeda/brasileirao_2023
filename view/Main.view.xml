@@ -1,0 +1,116 @@
+<mvc:View xmlns:table = "sap.ui.table"
+controllerName="campeonatobrasileiro.controller.Main"
+    xmlns:c="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <ObjectHeader id="_IDGenObjectHeader1" 
+            title="{ModeloDadosGerais>/nome_popular}"
+            number="{ModeloDadosGerais>/rodada_atual/rodada}"
+            numberUnit="Rodada"
+        ></ObjectHeader>
+        <IconTabBar id="_IDGenIconTabBar1" >
+            <items>
+                <IconTabFilter id="_IDGenIconTabFilter1" text="Classificação" 
+                icon="sap-icon://competitor"
+                key="classificacao">
+
+                    <!-- tabela -->
+                    <Table items="{ModeloClassificacao>/Classificacao}" id="_IDGenTable1">
+                        <columns>
+                            <!-- posição -->
+                            <Column id="_IDGenColumn1" width="3%">
+                                <Text id="_IDGenText1" text=""></Text>
+                            </Column>
+                            <!-- escudo -->
+                            <Column id="_IDGenColumn2" width="5%">
+                                <Text id="_IDGenText2" text=""></Text>
+                            </Column>
+                            <!-- time -->
+                            <Column id="_IDGenColumn3" width="auto">
+                                <Text id="_IDGenText3" text="Time"></Text>
+                            </Column>
+                            <!-- pontos -->
+                            <Column id="_IDGenColumn4" width="auto">
+                                <Text id="_IDGenText4" text="Pts"></Text>
+                            </Column>
+                            <!-- partidas jogadas -->
+                            <Column id="_IDGenColumn5" width="auto">
+                                <Text id="_IDGenText5" text="PJ"></Text>
+                            </Column>
+                            <!-- vitórias -->
+                            <Column id="_IDGenColumn6" width="auto">
+                                <Text id="_IDGenText6" text="VIT"></Text>
+                            </Column>
+                            <!-- empates -->
+                            <Column id="_IDGenColumn7" width="auto">
+                                <Text id="_IDGenText7" text="E"></Text>
+                            </Column>
+                            <!-- derrotas -->
+                            <Column id="_IDGenColumn8" >
+                                <Text id="_IDGenText8" text="DER"></Text>
+                            </Column>
+                            <!-- gols marcados -->
+                            <Column id="_IDGenColumn9" width="auto">
+                                <Text id="_IDGenText9" text="GM"></Text>
+                            </Column>
+                            <!-- gols contra -->
+                            <Column id="_IDGenColumn10" width="auto">
+                                <Text id="_IDGenText10" text="GC"></Text>
+                            </Column>
+                            <!-- saldo de gols -->
+                            <Column id="_IDGenColumn11" width="auto">
+                                <Text id="_IDGenText11" text="SG"></Text>
+                            </Column>
+                        </columns>    
+
+                        <items>
+                            <ColumnListItem id="_IDGenColumnListItem1" >
+                                <cells>
+                                    <!-- 1a coluna posicao-->
+                                    <Text id="_IDGenText12" text="{ModeloClassificacao>posicao}"></Text>
+                                    <!-- 2a coluna escudo-->
+                                    <Image id="_IDGenImage1" width="65%" 
+                                    src="{ModeloClassificacao>time/escudo}"></Image>
+                                    <!-- 3a coluna time-->
+                                    <Text id="_IDGenText13" text="{ModeloClassificacao>time/nome_popular}"></Text>
+                                    <!-- 4a coluna pontos-->
+                                    <Text id="_IDGenText14" text="{ModeloClassificacao>pontos}"></Text>
+                                    <!-- 5a coluna jogos-->
+                                    <Text id="_IDGenText15" text="{ModeloClassificacao>jogos}"></Text>
+                                    <!-- 6a coluna vitorias-->
+                                    <Text id="_IDGenText16" text="{ModeloClassificacao>vitorias}"></Text>
+                                    <!-- 7a coluna empates-->
+                                    <Text id="_IDGenText17" text="{ModeloClassificacao>empates}"></Text>
+                                    <!-- 8a coluna derrotas-->
+                                    <Text id="_IDGenText18" text="{ModeloClassificacao>derrotas}"></Text>
+                                    <!-- 9a coluna gm-->
+                                    <Text id="_IDGenText19" text="{ModeloClassificacao>gols_pro}"></Text>
+                                    <!-- 10a coluna gc-->
+                                    <Text id="_IDGenText20" text="{ModeloClassificacao>gols_contra}"></Text>
+                                    <!-- 11a coluna saldo gols-->
+                                    <Text id="_IDGenText21" text="{ModeloClassificacao>saldo_gols}"></Text>
+                                </cells>
+                            </ColumnListItem>
+                           
+       
+                        </items>
+                    </Table>
+                </IconTabFilter>
+
+                <IconTabFilter id="_IDGenIconTabFilter2" text="Partidas" 
+                icon="sap-icon://soccer"
+                key="partidas">
+
+                    <!-- importando fragment -->
+                    <c:Fragment
+                    fragmentName="campeonatobrasileiro.view.partidas" 
+                        type="XML" />
+
+                </IconTabFilter>
+                
+            </items>
+        </IconTabBar>
+
+    </Page>
+</mvc:View>
